@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CryptoController;
+use App\Http\Controllers\KomikController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,14 @@ use App\Http\Controllers\CryptoController;
 Route::resource('/', CryptoController::class);
 
 Route::resource('/admin', CryptoController::class);
+
+Route::get('/about', function () {
+    return view('about', [
+        "name" => "lala",
+        "email" => "lala@google.com"
+    ]);
+});
+
+Route::resource('/komik', KomikController::class);
 
 // Path: app\Http\Controllers\CryptoController.php
