@@ -16,10 +16,11 @@ class Komik extends Model
     protected $table = 'komik';
 
     protected $fillable = [
-        'komik_name',
-        'komik_desc',
-        'komik_img',
-        'komik_date',
-        'komik_author',
+        'nama_komik',
+        'author_komik',
+        'img_komik',
+        'desc_komik',
+        'created_at',
+        'updated_at',
     ];
 }

@@ -14,7 +14,9 @@ class KomikController extends Controller
      */
     public function index()
     {
-        return view("komik.index");
+        $users = DB::table('komik')->select('nama_komik','author_komik','img_komik', 'desc_komik', 'created_at', 'updated_at')->get();
+
+        return view('komik.index', ['komik' => $users]);
     }
 
     /**
@@ -25,12 +27,21 @@ class KomikController extends Controller
         return view("komik.form");
     }
 
+    public function shows()
+    {
+        return view("komik.show");
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreKomikRequest $request)
     {
-        //
+        $request->validate([
+            '_token' => 'required|csrf'
+        ]);
+
+        return $request->all();
     }
 
     /**

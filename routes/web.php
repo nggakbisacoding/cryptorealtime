@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CryptoController;
 use App\Http\Controllers\KomikController;
+use app\Http\Middleware\VerifyCsrfToken;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,10 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::post('/komik/create', [KomikController::class, "store"])->name('komik.create');
+
 Route::resource('/komik', KomikController::class);
+
+Route::get('/shows', [KomikController::class, 'shows'])->name('shows');
 
 // Path: app\Http\Controllers\CryptoController.php
