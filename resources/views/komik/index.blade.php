@@ -28,6 +28,7 @@
     <div class="bookmark"><a href="javascript:void(0);"><img src="/asset/star-icon.png"></img></a></div>
   </header>
   <main>
+    <!---
     <section class="featured-comic">
       <img src="/asset/Solo-Leveling-1.png" alt="Featured Comic">
       <p>Mengambil latar di dunia dimana muncul “Gate” yang menghubungkan antara dunia monster dan dunia manusia. Sejak
@@ -62,6 +63,40 @@
       </div>
     </section>
     <a href="javascript:" class="top" id="return-to-top"><i class="icon-chevron-up"></i></a>
+-->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>nama</th>
+              <th>author</th>
+              <th>image</th>
+              <th>harga</th>
+              <th>deskripsi</th>
+              <th>date rilis</th>
+          </thead>
+        <tbody class="table">
+        <?php $harga = 0 ?>
+        @foreach($data as $list)
+        <tr>
+            <td>{{$list->id}}</td>
+            <td>{{$list->nama_komik}}</td>
+            <td>{{$list->author_komik}}</td>
+            <td>{{$list->img_komik}}</td>
+            <td>{{$list->harga}}</td>
+            <td>{{$list->desc_komik}}</td>
+            <td>{{$list->date_komik}}</td>
+            <?php $harga += $list->harga ?>
+        </tr>
+        @endforeach
+        <tr>
+          <td>Harga TOTAL</td>
+          <td>
+            Rp. {{$harga}}
+          </td>
+        </tr>
+        </tbody>
+        </table>
   </main>
   <footer>
     <p>&copy; Komikmu 2023</p>

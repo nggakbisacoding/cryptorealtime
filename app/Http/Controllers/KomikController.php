@@ -12,11 +12,17 @@ class KomikController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __invoke()
+    {
+        $data = Komik::all();
+
+        return view('komik.' . request()->segment(1), ['data' => $data]);
+    }
     public function index()
     {
-        $users = DB::table('komik')->select('nama_komik','author_komik','img_komik', 'desc_komik', 'created_at', 'updated_at')->get();
+        $data = Komik::all();
 
-        return view('komik.index', ['komik' => $users]);
+        return view('komik.index', ['data' => $data]);
     }
 
     /**

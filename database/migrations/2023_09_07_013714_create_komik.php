@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama_komik', 50);
             $table->string('author_komik', 20);
             $table->string('img_komik', 60);
+            $table->integer('harga');
             $table->longText('desc_komik');
             $table->date('date_komik');
             $table->timestamps();

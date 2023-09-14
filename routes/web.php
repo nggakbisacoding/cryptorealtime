@@ -29,7 +29,9 @@ Route::get('/about', function () {
 
 Route::post('/komik/create', [KomikController::class, "store"])->name('komik.create');
 
-Route::resource('/komik', KomikController::class);
+Route::get('/komik', KomikController::class, 'index');
+
+route::get('/index', KomikController::class, 'index');
 
 Route::get('/shows', [KomikController::class, 'shows'])->name('shows');
 
